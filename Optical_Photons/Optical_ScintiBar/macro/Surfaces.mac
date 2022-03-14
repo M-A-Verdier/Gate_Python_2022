@@ -1,0 +1,28 @@
+##===============================================================
+## Optical photons Detection Surface should be DIELECTRIC-METAL
+##===============================================================
+
+/gate/scanner/surfaces/name                           Detection1
+/gate/scanner/surfaces/insert                         scint
+/gate/scanner/surfaces/Detection1/setSurface          perfect_apd
+
+/gate/scint/surfaces/name                     Detection2
+/gate/scint/surfaces/insert                   scanner
+/gate/scint/surfaces/Detection2/setSurface    perfect_apd
+
+
+/gate/scanner/surfaces/name                           Detection3
+/gate/scanner/surfaces/insert                         wrapping
+/gate/scanner/surfaces/Detection3/setSurface          smooth
+
+/gate/wrapping/surfaces/name                     Detection4
+/gate/wrapping/surfaces/insert                   scanner
+/gate/wrapping/surfaces/Detection4/setSurface    smooth
+
+/gate/scint/surfaces/name                           Detection5
+/gate/scint/surfaces/insert                         wrapping
+/gate/scint/surfaces/Detection5/setSurface          polished_teflon_wrapped
+
+/gate/wrapping/surfaces/name                     Detection6
+/gate/wrapping/surfaces/insert                   scint
+/gate/wrapping/surfaces/Detection6/setSurface    polished_teflon_wrapped

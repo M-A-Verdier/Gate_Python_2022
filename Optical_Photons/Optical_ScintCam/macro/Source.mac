@@ -1,0 +1,29 @@
+#  *********************************************************************
+#  * DISCLAIMER                                                        *
+#  *                                                                   *
+#  * Neither the authors of this software system, nor their employing  *
+#  * institutes, nor the agencies providing financial support for this *
+#  * work make any representation or warranty, express or implied,     *
+#  * regarding this software system or assume any liability for its    *
+#  * use.                                                              *
+#  *                                                                   *
+#  * This code implementation is the intellectual property of the      *
+#  * OpenGATE collaboration.                                           *
+#  * By copying, distributing or modifying the Program (or any work    *
+#  * based on the Program) you indicate your acceptance of this        *
+#  * statement, and all its terms.                                     *
+#  *********************************************************************
+
+
+/gate/source/addSource                                Co57
+/gate/source/Co57/gps/particle                    gamma
+/gate/source/Co57/gps/energytype                  Mono
+/gate/source/Co57/gps/monoenergy                  0.122 MeV
+/gate/source/Co57/setActivity                     1000 becquerel
+/gate/source/Co57/gps/angtype                     iso
+/gate/source/Co57/gps/mintheta                    0. deg
+/gate/source/Co57/gps/maxtheta                    0. deg
+/gate/source/Co57/gps/minphi                      0. deg
+/gate/source/Co57/gps/maxphi                      0. deg
+/gate/source/Co57/gps/type Point
+/gate/source/Co57/gps/centre		0.0 0.0 4.0 cm

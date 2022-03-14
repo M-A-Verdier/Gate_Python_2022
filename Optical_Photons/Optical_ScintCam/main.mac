@@ -1,0 +1,119 @@
+#  *********************************************************************
+#  * DISCLAIMER                                                        *
+#  *                                                                   *
+#  * Neither the authors of this software system, nor their employing  *
+#  * institutes, nor the agencies providing financial support for this *
+#  * work make any representation or warranty, express or implied,     *
+#  * regarding this software system or assume any liability for its    *
+#  * use.                                                              *
+#  *                                                                   *
+#  * This code implementation is the intellectual property of the      *
+#  * OpenGATE collaboration.                                           *
+#  * By copying, distributing or modifying the Program (or any work    *
+#  * based on the Program) you indicate your acceptance of this        *
+#  * statement, and all its terms.                                     *
+#  *********************************************************************
+
+#-------------------oooooOOOOO00000OOOOOooooo---------------------#
+#
+#         D E F I N E   Y O U R   O P T I C A L   S Y S T E M
+#
+#        A N D   Y O U R   C O M P L E T E   S I M U L A T I O N
+#
+#        F O R   I M A G I N G    A P P L I C A T I O N S
+#
+#-------------------oooooOOOOO00000OOOOOooooo---------------------#
+
+
+#=====================================================
+# VISUALISATION and VERBOSE
+#=====================================================
+
+/vis/disable
+#/control/execute                    ./macro/Visualisation.mac
+/control/execute                    ./macro/Verbose.mac
+
+#=====================================================
+# GEOMETRY
+#=====================================================
+
+/gate/geometry/setMaterialDatabase    ./GateMaterials.db
+
+
+#-------------------oooooOOOOO00000OOOOOooooo---------------------#
+#                                                                 #
+#     D E F I N I T I O N   A N D   D E S C R I T I O N           #
+#        O F   Y O U R   D E V I C E                              #
+#                                                                 #
+#-------------------oooooOOOOO00000OOOOOooooo---------------------#
+
+#=======================================================
+#                   G E O M E T R Y
+#=======================================================
+/control/execute                    ./macro/Geometry.mac
+
+
+#=======================================================
+#                   P H Y S I C S
+#=======================================================
+/control/execute                    ./macro/Physics.mac
+
+
+#=====================================================
+# 	     I N I T I A L I S A T I O N
+#=====================================================
+/gate/run/initialize
+
+
+#=====================================================
+# 		    S U R F A C E S
+#=====================================================
+/control/execute                    ./macro/Surfaces.mac
+
+
+#=====================================================
+#  		    S O U R C E
+#=====================================================
+/control/execute ./macro/Source.mac
+
+
+#=====================================================
+#  D A T A   O U T P U T
+#=====================================================
+
+#/gate/output/root/enable
+#/gate/output/root/setFileName                     CamPos_0
+#/gate/output/root/setRootHitFlag          1
+#/gate/output/root/setRootSinglesFlag      0
+#/gate/output/root/setRootOpticalFlag      0
+
+/gate/output/tree/enable
+/gate/output/tree/addFileName CamPos_0.npy
+/gate/output/tree/hits/enable
+
+
+#=====================================================
+#   R A N D O M
+#=====================================================
+# Choose between: JamesRandom Ranlux64 MersenneTwister
+/gate/random/setEngineName MersenneTwister
+#/gate/random/setEngineSeed default
+/gate/random/setEngineSeed auto
+#/gate/random/setEngineSeed 123456789
+/gate/random/verbose 1
+
+#=====================================================
+#   MEASUREMENT SETTINGS
+#=====================================================
+
+#=====================================================
+# A C Q U I S I T I O N
+#=====================================================
+
+#/gate/application/noGlobalOutput
+#/control/execute                        ./macro/StartPrimaries.mac
+/gate/application/setTotalNumberOfPrimaries       100
+/gate/application/start
+
+# If using DAQ: setActivity is needed in the Source
+#/control/execute                        ./macro/StartDAQ.mac

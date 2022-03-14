@@ -1,0 +1,40 @@
+##===============================================================
+## Optical photons Detection Surface should be DIELECTRIC-METAL
+##===============================================================
+
+/gate/scanner/surfaces/name                           Detection1
+/gate/scanner/surfaces/insert                         scint
+/gate/scanner/surfaces/Detection1/setSurface          polished_teflon_wrapped
+#/gate/scanner/surfaces/Detection1/setSurface          perfect_apd
+
+
+/gate/scint/surfaces/name                     Detection2
+/gate/scint/surfaces/insert                   scanner
+/gate/scint/surfaces/Detection2/setSurface    polished_teflon_wrapped
+#/gate/scint/surfaces/Detection2/setSurface    perfect_apd
+
+/gate/scint/surfaces/name                           Detection3
+/gate/scint/surfaces/insert                         glass
+/gate/scint/surfaces/Detection3/setSurface          smooth
+
+/gate/glass/surfaces/name                     Detection4
+/gate/glass/surfaces/insert                   scint
+/gate/glass/surfaces/Detection4/setSurface    smooth
+
+/gate/scint/surfaces/name                           Detection5
+/gate/scint/surfaces/insert                         reflec
+#/gate/scint/surfaces/Detection5/setSurface          black
+/gate/scint/surfaces/Detection5/setSurface          polished_teflon_wrapped
+
+/gate/reflec/surfaces/name                     Detection6
+/gate/reflec/surfaces/insert                   scint
+#/gate/reflec/surfaces/Detection6/setSurface    black
+/gate/reflec/surfaces/Detection6/setSurface    polished_teflon_wrapped
+
+/gate/glass/surfaces/name                           Detection7
+/gate/glass/surfaces/insert                         detec
+/gate/glass/surfaces/Detection7/setSurface          perfect_apd
+
+/gate/detec/surfaces/name                     Detection8
+/gate/detec/surfaces/insert                   glass
+/gate/detec/surfaces/Detection8/setSurface    perfect_apd

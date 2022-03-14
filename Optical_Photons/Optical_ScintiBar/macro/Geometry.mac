@@ -1,0 +1,57 @@
+#  *********************************************************************
+#  * DISCLAIMER                                                        *
+#  *                                                                   *
+#  * Neither the authors of this software system, nor their employing  *
+#  * institutes, nor the agencies providing financial support for this *
+#  * work make any representation or warranty, express or implied,     *
+#  * regarding this software system or assume any liability for its    *
+#  * use.                                                              *
+#  *                                                                   *
+#  * This code implementation is the intellectual property of the      *
+#  * OpenGATE collaboration.                                           *
+#  * By copying, distributing or modifying the Program (or any work    *
+#  * based on the Program) you indicate your acceptance of this        *
+#  * statement, and all its terms.                                     *
+#  *********************************************************************
+
+
+#     W O R L D
+/gate/world/geometry/setXLength                        40. cm
+/gate/world/geometry/setYLength                        40. cm
+/gate/world/geometry/setZLength                        40. cm
+
+
+#	Scanner
+/gate/world/daughters/name                              scanner
+/gate/world/daughters/insert                            box
+/gate/scanner/placement/setTranslation                  0.0 0.0 0.0 cm
+/gate/scanner/geometry/setXLength                       10.4 cm
+/gate/scanner/geometry/setYLength                       0.602 cm
+/gate/scanner/geometry/setZLength                       0.602 cm
+/gate/scanner/setMaterial                               Plastic
+/gate/scanner/vis/setColor                              green
+/gate/scanner/vis/setVisible                            1
+# /gate/scanner/vis/forceWireframe
+
+/gate/scanner/daughters/name                          wrapping
+/gate/scanner/daughters/insert                          box
+/gate/wrapping/placement/setTranslation                  0.0 0.0 0.0 cm
+/gate/wrapping/geometry/setXLength                       10 cm
+/gate/wrapping/geometry/setYLength                       0.602 cm
+/gate/wrapping/geometry/setZLength                       0.602 cm
+/gate/wrapping/setMaterial                               PTFE
+/gate/wrapping/vis/setColor                              yellow
+/gate/wrapping/vis/setVisible                            1
+/gate/wrapping/vis/forceWireframe
+
+/gate/wrapping/daughters/name                          scint
+/gate/wrapping/daughters/insert                          box
+/gate/scint/placement/setTranslation                  0.0 0.0 0.0 cm
+/gate/scint/geometry/setXLength                       10 cm
+/gate/scint/geometry/setYLength                       0.6 cm
+/gate/scint/geometry/setZLength                       0.6 cm
+/gate/scint/setMaterial                               LaBr3
+/gate/scint/vis/setColor                              blue
+/gate/scint/vis/setVisible                            1
+
+/gate/scint/attachCrystalSD
